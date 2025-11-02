@@ -22,6 +22,12 @@ processed_messages = deque(maxlen=1000)  # track processed message IDs to preven
 async def on_ready():
     if bot.user:
         log(f"[READY] Logged in as {bot.user} (ID: {bot.user.id})", Fore.GREEN)
+
+        # Log server names
+        log("Connected to the following servers:", Fore.YELLOW)
+        for guild in bot.guilds:
+            log(f"- {guild.name} (ID: {guild.id})", Fore.YELLOW)
+
         try:
             await bot.load_extension("commands")
             synced = await bot.tree.sync()
@@ -63,7 +69,7 @@ async def on_message(message):
 
         # Check if message is a direct reply to bot or mentions bot
         is_direct_reply = message.reference and message.reference.resolved and message.reference.resolved.author == bot.user
-        is_bot_mentioned = bot.user in message.mentions or "botlivia blevitron" in message.content.lower()
+        is_bot_mentioned = bot.user in message.mentions or "blevitron" in message.content.lower()
 
         # Auto-reply if directly mentioned or replied to
         if is_direct_reply or is_bot_mentioned:
