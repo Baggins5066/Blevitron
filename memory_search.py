@@ -106,8 +106,8 @@ async def get_relevant_memories(current_message, conversation_history, limit=40)
     # Search for similar messages
     results = await search_similar_messages_async(search_query, limit)
 
-    # Extract just the message content
-    memories = [content for content, similarity in results if similarity > 0.3]
+    # Extract just the message content, ignoring the author from the tuple
+    memories = [content for content, similarity, _ in results if similarity > 0.3]
 
     return memories
 
@@ -123,7 +123,7 @@ if __name__ == '__main__':
         results = await search_similar_messages_async(test_query, limit=40)
 
         print(f"Found {len(results)} similar messages:\n")
-        for i, (content, similarity) in enumerate(results, 1):
-            print(f"{i}. [Similarity: {similarity:.3f}] {content}")
+        for i, (content, similarity, author) in enumerate(results, 1):
+            print(f"{i}. [Similarity: {similarity:.3f}] ({author or 'Unknown'}): {content}")
 
     asyncio.run(test())

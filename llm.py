@@ -21,7 +21,8 @@ async def should_bot_reply(message, history):
 
     # Get relevant memories from the database
     memories = await get_relevant_memories(processed_content, processed_history, limit=40)
-    memory_text = "\n".join([f"- {mem}" for mem in memories])
+    # Correctly handle the tuple (content, similarity, author)
+    memory_text = "\n".join([f"- {mem[0]}" for mem in memories])
 
     decision_prompt = f"""You are deciding whether "Botlivia Blevitron" (a Discord bot) should respond to this message.
 
