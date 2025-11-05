@@ -27,9 +27,9 @@ outputType = "console"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python bot.py"
+args = "python main.py"
 
 [deployment]
 deploymentTarget = "vm"
-run = ["python", "bot.py"]
+run = ["python", "main.py"]
 ignorePorts = true
