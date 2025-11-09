@@ -1,1 +1,6 @@
 2025-11-05 03:51:46,889 - my_bot_logger - INFO - [MEMORY] Added memory: test_message
+2025-11-05 17:43:51,256 - my_bot_logger - INFO - [READY] Logged in as Blevitron#4963 (ID: 1430009844680884405)
+2025-11-05 17:43:51,256 - my_bot_logger - INFO - Connected to the following servers:
+2025-11-05 17:43:51,256 - my_bot_logger - INFO - - scp containment (ID: 1196537337862180964)
+2025-11-05 17:43:51,256 - my_bot_logger - INFO - - The Tinkerers Closet (ID: 1430035768637788313)
+2025-11-05 17:43:51,552 - my_bot_logger - INFO - Synced 2 command(s)
