@@ -3,3 +3,4 @@ colorama>=0.4.6
 aiohttp>=3.13.0
 chromadb>=1.2.0
 urllib3>=2.5.0
+opentelemetry-api
